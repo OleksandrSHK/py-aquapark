@@ -12,14 +12,14 @@ class IntegerRange:
 
     def __get__(self, obj: Optional[Any],
                 objtype: Optional[Type[Any]] = None) -> None:
-        getattr(obj, self.protected_name)
+        return getattr(obj, self.protected_name)
 
     def __set__(self, obj: Optional[Any], value: int) -> None:
         if not isinstance(value, int):
             raise TypeError
         if value < self.min_amount or value > self.max_amount:
             raise ValueError
-        return setattr(obj, self.protected_name, value)
+        setattr(obj, self.protected_name, value)
 
 
 class Visitor:
