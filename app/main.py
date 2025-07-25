@@ -19,7 +19,7 @@ class IntegerRange:
             raise TypeError
         if value < self.min_amount or value > self.max_amount:
             raise ValueError
-        setattr(obj, self.protected_name, value)
+        return setattr(obj, self.protected_name, value)
 
 
 class Visitor:
